@@ -1,0 +1,24 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/duanfan07/springcloud-config.git
+          search-paths:
+            - springcloud-config
+      label: master
+  rabbitmq: #这些都可以不配，因为默认就是这些（springboot的核心思想，约定大约配置）
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+
+
